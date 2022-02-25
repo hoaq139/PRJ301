@@ -471,3 +471,67 @@ input {
 }
 
 /*--------------wrapper2--------*/
+/*--------------restaurant--------*/
+.restaurant img {
+  width: 100%;
+  height: 100%;
+}
+
+.restaurant .right {
+  padding: 50px 50px 50px 100px;
+}
+
+.restaurant h2 {
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.restaurant .text p {
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+
+.accordionItem {
+  margin-top: 30px;
+}
+
+.accordionItem p {
+  font-size: 15px;
+  opacity: 0.8;
+  font-family: sans-serif;
+  line-height: 20px;
+}
+
+.accordionIHeading {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+  font-weight: 400;
+  font-size: 17px;
+  color: #C1B086;
+  margin-bottom: 20px;
+}
+
+.close .accordionItemContent {
+  height: 0px;
+  transition: height 1s ease-out;
+  transform: scaleY(0);
+  float: left;
+  display: block;
+  background-color: #fff;
+}
+
+.open .accordionItemContent {
+  padding: 30px;
+  background-color: #fff;
+  width: 100%;
+  margin: 0 0 10px 0;
+  display: block;
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+  box-sizing: border-box;
+  box-shadow: 0 13px 43px 0 rgb(37 46 89 / 10%);
+}
+
+/*--------------restaurant--------*/

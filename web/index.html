@@ -249,6 +249,67 @@
           </div>
         </div>
       </section>
+      <section class="restaurant top" id="restaurant">
+        <div class="container flex">
+          <div class="left">
+            <img src="images/re.jpg" alt="">
+          </div>
+          <div class="right">
+            <div class="text">
+              <h2>Our Restaurant</h2>
+              <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="accordionWrapper">
+              <div class="accordionItem open">
+                <h2 class="accordionIHeading">Italian Kitchen</h2>
+                <div class="accordionItemContent">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                </div>
+              </div>
+              <div class="accordionItem close">
+                <h2 class="accordionIHeading">Mexican Kitchen</h2>
+                <div class="accordionItemContent">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                </div>
+              </div>
+              <div class="accordionItem close">
+                <h2 class="accordionIHeading">Italian Kitchen</h2>
+                <div class="accordionItemContent">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                </div>
+              </div>
+              <div class="accordionItem close">
+                <h2 class="accordionIHeading">Mexican Kitchen</h2>
+                <div class="accordionItemContent">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <script>
+        var accItem = document.getElementsByClassName('accordionItem');
+        var accHD = document.getElementsByClassName('accordionIHeading');
+    
+        for (i = 0; i < accHD.length; i++) {
+          accHD[i].addEventListener('click', toggleItem, false);
+        }
+    
+        function toggleItem() {
+          var itemClass = this.parentNode.className;
+          for (var i = 0; i < accItem.length; i++) {
+            accItem[i].className = 'accordionItem close';
+          }
+          if (itemClass == 'accordionItem close') {
+            this.parentNode.className = 'accordionItem open';
+          }
+        }
+      </script>
          <footer>
         <div class="container grid top">
           <div class="box">
@@ -286,7 +347,7 @@
             </ul>
           </div>
     
-<!--          <div class="box" id="contact">
+          <div class="box" id="contact">
             <h3>Contact Us</h3>
     
             <ul>
@@ -298,6 +359,6 @@
             </ul>
           </div>
         </div>
-      </footer>-->
+      </footer>
     </body>
 </html>
