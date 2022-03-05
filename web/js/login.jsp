@@ -18,11 +18,11 @@
                     <div class="sign-in-htm">
                         <div class="group">
                             <label for="user" class="label">Username</label>
-                            <input id="user" type="text" class="input" name="user">
+                            <input id="user" type="text" class="input" required="" name="user">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" class="input" data-type="password" name="pass">
+                            <input id="pass" type="password" class="input" data-type="password" required="" name="pass">
                         </div>
                         <div class="group">
                             <input id="check" type="checkbox" class="check" checked>

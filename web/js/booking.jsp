@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="images">
-                <img src="images/hotel5.jpg" class="slide">
+                <img src="../images/hotel5.jpg" class="slide">
             </div>
         </div>
     </section>
@@ -111,7 +111,7 @@
     </div>
     <div class="infor">
         <div class="infor-add">
-           <p>You are booking as guest, <a href="login.html"> LOGIN or REGISTER</a>  if you want to save your reservation on your account.</p>
+           <p>You are booking as guest, <a href="../js/login.jsp"> LOGIN or REGISTER</a>  if you want to save your reservation on your account.</p>
         </div>
         <span class="bar1"></span>
         <div class="information">

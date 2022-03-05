@@ -366,7 +366,7 @@ input {
 /*--------------about--------*/
 /*--------------wrapper--------*/
 .wrapper {
-  background-image: url("images/ami.jpg");
+  background-image: url("../images/ami.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -446,7 +446,7 @@ input {
 /*--------------room--------*/
 /*--------------wrapper2--------*/
 .wrapper2 {
-  background-image: url("images/w1.jpg");
+  background-image: url("../images/w1.jpg");
 }
 
 .wrapper2 .text {
