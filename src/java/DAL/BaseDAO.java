@@ -25,7 +25,7 @@ public abstract class BaseDAO<T> {
         try {
             String user = "sa";
             String pass = "sa";
-            String url = "jdbc:sqlserver://DESKTOP-SVDADP5\\SQLEXPRESS:1433;databaseName=Hotel1";
+            String url = "jdbc:sqlserver://DESKTOP-SVDADP5\\SQLEXPRESS:1433;databaseName=Prj301_Hotel";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             connection = DriverManager.getConnection(url, user, pass);
         } catch (ClassNotFoundException | SQLException ex) {

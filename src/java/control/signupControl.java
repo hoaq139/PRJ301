@@ -7,20 +7,17 @@ package control;
 
 import DAL.AccountDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Account;
 
 /**
  *
  * @author win
  */
-public class loginControl extends HttpServlet {
+public class signupControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,20 +31,34 @@ public class loginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String user = request.getParameter("user");
+        String user = request.getParameter("user");
         String pass = request.getParameter("pass");
-        AccountDAO dao = new AccountDAO();
-        Account a = dao.getAccountByUsernameAndPassword(user, pass);
-        if (a != null) // login successfully!
-        {
-           response.sendRedirect("../index.html");
-           
-        } else //login fail
-        {
-            request.setAttribute("mess", "Wrong username or password");
-            request.setAttribute("user", user);
-            request.setAttribute("pass", pass);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+        String repass = request.getParameter("repass");
+        String email = request.getParameter("email");
+        if (pass.equals(repass)){
+            AccountDAO dao = new AccountDAO();
+            Account a = dao.checkAccountExist(user);
+            Account account = new Account(user, pass, email);
+            if (a == null){
+                dao.insertAccount(account);
+                response.sendRedirect("../index.html");
+            }else{
+               request.setAttribute("a",1);
+               request.setAttribute("user2", user);
+               request.setAttribute("pass2", pass);
+               request.setAttribute("repass", repass);
+               request.setAttribute("email", email);
+               request.setAttribute("mess2", "Account already exist!");
+               request.getRequestDispatcher("login.jsp").forward(request, response);
+            }
+        }else{
+            request.setAttribute("a",1);
+            request.setAttribute("user2", user);
+            request.setAttribute("pass2", pass);
+            request.setAttribute("repass", repass);
+            request.setAttribute("email", email);
+            request.setAttribute("mess2", "Wrong repass. Please enter again!");
+             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
@@ -78,8 +89,6 @@ public class loginControl extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-       
-        
     }
 
     /**
