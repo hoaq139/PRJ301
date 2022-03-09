@@ -4,6 +4,9 @@
     Author     : win
 --%>
 
+<%@page import="model.Services"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Room"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,6 +29,12 @@
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/search.css" type="text/css">
+    <%
+         List<Room> list = (List<Room>) request.getAttribute("listRoom");
+         List<Services> list2 = (List<Services>) request.getAttribute("listService");
+         
+    
+    %>
 </head>
 
 <body>
@@ -87,19 +96,19 @@
             <div class="input grid">
                 <div class="box">
                     <label>Check-in:</label>
-                    <input type="date" placeholder="Check-in-Date">
+                    <input type="date" placeholder="Check-in-Date" readonly="">
                 </div>
                 <div class="box">
                     <label>Check-out:</label>
-                    <input type="date" placeholder="Check-out-Date">
+                    <input type="date" placeholder="Check-out-Date" readonly="">
                 </div>
                 <div class="box">
                     <label>Adults:</label> <br>
-                    <input type="number" placeholder="0">
+                    <input type="number" placeholder="0" readonly="">
                 </div>
                 <div class="box">
                     <label>Children:</label> <br>
-                    <input type="number" placeholder="0">
+                    <input type="number" placeholder="0" readonly="">
                 </div>
             </div>
         </div>
@@ -109,52 +118,52 @@
             <div class="view">
                 <div class="services">
                     <label>Services:</label><br>
-                    <input type="checkbox" name="buffet">&nbsp &nbsp Buffet : <span>50 $ ( /Guest/Time )</span><br>
-                    <input type="checkbox" name="wine">&nbsp &nbsp Wine : <span>50 $ ( /Bottle )</span><br>
-                    <input type="checkbox" name="launry">&nbsp &nbsp Launry : <span>10 $ ( /Room/Night )</span><br>
-                    <input type="checkbox" name="car">&nbsp &nbsp Car Rental : <span>30 $ ( /Room/Night )</span><br>
-                    <input type="checkbox" name="breakfast">&nbsp &nbsp Breakfast : <span>10 $ ( /Guest/Time )</span><br>
-                    <input type="checkbox" name="seaview">&nbsp &nbsp  Sea View : <span>10 $ ( /Room/Night )</span><br>
-                    <input type="checkbox" name="tv">&nbsp &nbsp Satellite TV : <span>50 $ ( Room / Trip )</span><br>
-                    <input type="checkbox" name="wifi">&nbsp &nbsp Wifi: <span>10 $ ( /Room/Night )</span><br>
+                    <input type="checkbox" name="buffet">&nbsp &nbsp <%=list2.get(0).getName()%> : <span><%=list2.get(0).getPrice()%> $ ( /Guest/Time )</span><br>
+                    <input type="checkbox" name="wine">&nbsp &nbsp <%=list2.get(1).getName()%> : <span><%=list2.get(1).getPrice()%> $ ( /Bottle )</span><br>
+                    <input type="checkbox" name="launry">&nbsp &nbsp <%=list2.get(2).getName()%> : <span><%=list2.get(2).getPrice()%> $ ( /Room/Night )</span><br>
+                    <input type="checkbox" name="car">&nbsp &nbsp <%=list2.get(3).getName()%> : <span><%=list2.get(3).getPrice()%> $ ( /Room/Night )</span><br>
+                    <input type="checkbox" name="breakfast">&nbsp &nbsp <%=list2.get(4).getName()%> : <span><%=list2.get(4).getPrice()%> $ ( /Guest/Time )</span><br>
+                    <input type="checkbox" name="seaview">&nbsp &nbsp  <%=list2.get(5).getName()%> : <span><%=list2.get(5).getPrice()%> $ ( /Room/Night )</span><br>
+                    <input type="checkbox" name="tv">&nbsp &nbsp <%=list2.get(6).getName()%> : <span><%=list2.get(6).getPrice()%> $ ( Room / Trip )</span><br>
+                    <input type="checkbox" name="wifi">&nbsp &nbsp <%=list2.get(7).getName()%>: <span><%=list2.get(7).getPrice()%> $ ( /Room/Night )</span><br>
 
                 </div>
                 <div class="img-room">
                     <div class="room-des">
-                        <img src="../images/room1.jpg" alt="">
+
+                       
+                        <img src="../<%=list.get(0).getImage()%>"alt="">
                         <div class="room-text">
-                            <h3>Superior Soble Room</h3>
+                            <h3><%=list.get(0).getName()%></h3>
                             <div class="room-flex">
                                 <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
                                     alt="">
-                                <p>1 GUEST</p>
+                                <p><%=list.get(0).getGuest()%> GUEST</p>
                                 <img class="img-2"
                                     src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
                                     alt="">
-                                <p>110m2</p>
+                                <p><%=list.get(0).getSquare()%>m2</p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl. Duis
-                                ac mi leo.</p>
-                            <input type="submit" name="booknow" value="Book now for 100$">
+                            <p><%=list.get(0).getDescription()%></p>
+                            <input type="submit" name="booknow" value="Book now for <%=list.get(0).getPrice()%>$">
                             <span></span>
                         </div>
                     </div>
                     <div class="room-des">
-                        <img src="../images/room4.jpg" alt="">
+                        <img src="../<%=list.get(1).getImage()%>" alt="">
                         <div class="room-text">
-                            <h3>Luxury Room</h3>
+                            <h3><%=list.get(1).getName()%></h3>
                             <div class="room-flex">
                                 <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
                                     alt="">
-                                <p>4 GUEST</p>
+                                <p><%=list.get(1).getGuest()%> GUEST</p>
                                 <img class="img-2"
                                     src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
                                     alt="">
-                                <p>100m2</p>
+                                <p><%=list.get(1).getSquare()%>m2</p>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl. Duis
-                                ac mi leo.</p>
-                            <input type="submit" name="booknow" value="Book now for 100$">
+                            <p><%=list.get(1).getDescription()%></p>
+                            <input type="submit" name="booknow" value="Book now for <%=list.get(1).getPrice()%>$">
                             <span></span>
                         </div>
                     </div>
@@ -164,59 +173,57 @@
                 <div class="view">
                     <div class="img-room">
                         <div class="room-des">
-                            <img src="../images/room7.jpg" alt="">
+                            <img src="../<%=list.get(2).getImage()%>" alt="">
                             <div class="room-text">
-                                <h3>Standard Room</h3>
+                                <h3><%=list.get(2).getName()%></h3>
                                 <div class="room-flex">
                                     <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
                                         alt="">
-                                    <p>3 GUEST</p>
+                                    <p><%=list.get(2).getGuest()%> GUEST</p>
                                     <img class="img-2"
                                         src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
                                         alt="">
-                                    <p>70m2</p>
+                                    <p><%=list.get(2).getSquare()%>m2</p>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl.
-                                    Duis ac mi leo.</p>
-                                <input type="submit" name="booknow" value="Book now for 100$">
+                                <p><%=list.get(2).getDescription()%></p>
+                                <input type="submit" name="booknow" value="Book now for <%=list.get(2).getPrice()%>$">
                                 <span></span>
                             </div>
                         </div>
                         <div class="room-des">
-                            <img src="../images/room5.jpg" alt="">
+                            <img src="../<%=list.get(3).getImage()%>" alt="">
                             <div class="room-text">
-                                <h3>Tripper Room</h3>
+                                <h3><%=list.get(3).getName()%></h3>
                                 <div class="room-flex">
                                     <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
                                         alt="">
-                                    <p>2 GUEST</p>
+                                    <p><%=list.get(3).getGuest()%> GUEST</p>
                                     <img class="img-2"
                                         src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
                                         alt="">
-                                    <p>80m2</p>
+                                    <p><%=list.get(3).getSquare()%>m2</p>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl.
-                                    Duis ac mi leo.</p>
-                                <input type="submit" name="booknow" value="Book now for 100$">
+                                <p><%=list.get(3).getDescription()%></p>
+                                <input type="submit" name="booknow" value="Book now for <%=list.get(3).getPrice()%>$">
                                 <span></span>
                             </div>
                         </div>
                         <div class="room-des">
-                            <img src="../images/room3.jpg" alt="">
+                            <img src="../<%=list.get(4).getImage()%>" alt="">
                             <div class="room-text">
-                                <h3>Apartment</h3>
+                                <h3><%=list.get(4).getName()%></h3>
                                 <div class="room-flex">
                                     <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
                                         alt="">
-                                    <p>5 GUEST</p>
+                                    <p><%=list.get(4).getGuest()%> GUEST</p>
                                     <img class="img-2"
                                         src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
                                         alt="">
-                                    <p>120m2</p>
+                                    <p><%=list.get(4).getSquare()%>m2</p>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vel molestie nisl.
-                                    Duis ac mi leo.</p>
-                                <input type="submit" name="booknow" value="Book now for 100$">
+                                <p><%=list.get(4).getDescription()%></p>
+                              
+                                <input type="submit" name="booknow" value="Book now for <%=list.get(4).getPrice()%>$">
                                 <span></span>
                             </div>
                         </div>

@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/web/js/login.jsp</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/web/js/booking.jsp</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/control/loginControl.java</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/control/signupControl.java</file>
+            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/DAL/ServicesDAO.java</file>
+            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/web/js/home.jsp</file>
+            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/control/searchControl.java</file>
+            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/model/Services.java</file>
+            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/web/js/search.jsp</file>
+            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/DAL/RoomDAO.java</file>
         </group>
     </open-files>
 </project-private>

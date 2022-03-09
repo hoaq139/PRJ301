@@ -8,6 +8,10 @@
         <servlet-name>signupControl</servlet-name>
         <servlet-class>control.signupControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>searchControl</servlet-name>
+        <servlet-class>control.searchControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginControl</servlet-name>
         <url-pattern>/js/login</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>signupControl</servlet-name>
         <url-pattern>/js/signup</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>searchControl</servlet-name>
+        <url-pattern>/js/search</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

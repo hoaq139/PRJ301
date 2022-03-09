@@ -8,6 +8,7 @@
         <title>Login - Sochi Hotel</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="${pageContext.request.contextPath}/css/login.css" rel="stylesheet" type="text/css">
+    
     </head>
     <body>
         <div class="login-wrap">
@@ -31,7 +32,7 @@
                                     required="" name="pass" value="${pass}" pattern="^{8,20}$">
                             </div>
                             <div class="group">
-                                <input id="check" type="checkbox" class="check" checked>
+                                <input id="check" type="checkbox" class="check" name="remember">
                                 <label for="check"><span class="icon"></span> Keep me Signed in</label>
                             </div>
                             <div class="group">

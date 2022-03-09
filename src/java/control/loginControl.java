@@ -34,21 +34,7 @@ public class loginControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String user = request.getParameter("user");
-        String pass = request.getParameter("pass");
-        AccountDAO dao = new AccountDAO();
-        Account a = dao.getAccountByUsernameAndPassword(user, pass);
-        if (a != null) // login successfully!
-        {
-           response.sendRedirect("../index.html");
-           
-        } else //login fail
-        {
-            request.setAttribute("mess", "Wrong username or password");
-            request.setAttribute("user", user);
-            request.setAttribute("pass", pass);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,7 +63,33 @@ public class loginControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        String user =  request.getParameter("user");
+        String pass = request.getParameter("pass");
+        AccountDAO dao = new AccountDAO();
+        Account a = dao.getAccountByUsernameAndPassword(user, pass);
+        
+        if (a != null) // login successfully!
+        {
+            String remember = request.getParameter("remember");
+            if (remember != null) {
+                Cookie c_user = new Cookie("user", user);
+                Cookie c_pass = new Cookie("pass", pass);
+                c_user.setMaxAge(3600 * 24 * 30);
+                c_pass.setMaxAge(3600 * 24 * 30);
+                response.addCookie(c_user);
+                response.addCookie(c_pass);
+                
+            }
+            HttpSession session = request.getSession();
+            response.sendRedirect("home.jsp");
+        } else //login fail
+        {
+            request.setAttribute("mess", "Wrong username or password");
+            request.setAttribute("user", user);
+            request.setAttribute("pass", pass);
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
        
         
     }

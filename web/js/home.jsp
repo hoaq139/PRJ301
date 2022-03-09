@@ -4,6 +4,9 @@
     Author     : win
 --%>
 
+<%@page import="java.sql.Date"%>
+<%@page import="DAL.AccountDAO"%>
+<%@page import="model.Account"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,6 +30,11 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
+          <%
+              Date checkin = (Date) request.getAttribute("checkin");
+              Date checkout = (Date) request.getAttribute("checkout");
+          %>
+        
     </head>
     <body>
         <header class="header" id="navigation-menu">
@@ -101,29 +109,31 @@
             }
         </script>
         <section class="book">
+            <form action="search" method="POST">
             <div class="container flex">
                 <div class="input grid">
                     <div class="box">
                         <label>Check-in:</label>
-                        <input type="date" placeholder="Check-in-Date">
+                        <input type="date" placeholder="Check-in-Date" name="checkin">
                     </div>
                     <div class="box">
                         <label>Check-out:</label>
-                        <input type="date" placeholder="Check-out-Date">
+                        <input type="date" placeholder="Check-out-Date" name="checkout">
                     </div>
                     <div class="box">
                         <label>Adults:</label> <br>
-                        <input type="number" placeholder="0">
+                        <input type="number" placeholder="0" name="adult">
                     </div>
                     <div class="box">
                         <label>Children:</label> <br>
-                        <input type="number" placeholder="0">
+                        <input type="number" placeholder="0" name="child">
                     </div>
                 </div>
                 <div class="search">
                     <input type="submit" value="SEARCH">
                 </div>
             </div>
+                </form>
         </section>
         <section class="about top" id="about">
             <div class="container flex">

@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  *
  * @author fsoft
  */
-public abstract class BaseDAO<T> {
+public abstract class BaseDAO<T>{
 
     protected Connection connection;
 
@@ -32,6 +32,7 @@ public abstract class BaseDAO<T> {
             Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+ 
 
 
 }
