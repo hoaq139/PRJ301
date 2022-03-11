@@ -65,7 +65,7 @@
                             </div>
                             <div class="group">
                                 <label for="pass" class="label">Email Address</label>
-                                <input id="pass" type="text" class="input" name="email" pattern="^[A-Za-z0-9+_.-]+@(.+)$" required="" value="${email}">
+                                <input id="pass" type="email" class="input" name="email" required="" value="${email}">
                             </div>
                             <div class="group">
                                 <button type="submit" class="button"><a href="signupControl?do=signup"></a>Sign Up</button>

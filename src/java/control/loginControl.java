@@ -82,6 +82,7 @@ public class loginControl extends HttpServlet {
                 
             }
             HttpSession session = request.getSession();
+            session.setAttribute("account", a);
             response.sendRedirect("home.jsp");
         } else //login fail
         {

@@ -12,6 +12,26 @@
         <servlet-name>searchControl</servlet-name>
         <servlet-class>control.searchControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>roomList</servlet-name>
+        <servlet-class>adminControl.roomList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>createRoom</servlet-name>
+        <servlet-class>adminControl.createRoom</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutServlet</servlet-name>
+        <servlet-class>control.logoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteRoom</servlet-name>
+        <servlet-class>adminControl.deleteRoom</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateRoom</servlet-name>
+        <servlet-class>adminControl.updateRoom</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginControl</servlet-name>
         <url-pattern>/js/login</url-pattern>
@@ -23,6 +43,26 @@
     <servlet-mapping>
         <servlet-name>searchControl</servlet-name>
         <url-pattern>/js/search</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>roomList</servlet-name>
+        <url-pattern>/admin/room/roomList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createRoom</servlet-name>
+        <url-pattern>/admin/room/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutServlet</servlet-name>
+        <url-pattern>/js/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteRoom</servlet-name>
+        <url-pattern>/admin/room/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateRoom</servlet-name>
+        <url-pattern>/admin/room/update</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

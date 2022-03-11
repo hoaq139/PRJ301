@@ -18,11 +18,12 @@ import model.Room;
  *
  * @author win
  */
-public class RoomDAO extends BaseDAO<Room>{
-    public List<Room> getAllRoom(){
+public class RoomDAO extends BaseDAO<Room> {
+
+    public List<Room> getAllRoom() {
         List<Room> list = new ArrayList<>();
         try {
-            String sql ="SELECT *FROM Room";
+            String sql = "SELECT *FROM Room";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -39,7 +40,89 @@ public class RoomDAO extends BaseDAO<Room>{
         } catch (SQLException e) {
         }
         return list;
-        
+
     }
-    
+
+    public Room getRoom(int id) {
+        try {
+            String sql = "SELECT name, image, price, guest, square, description FROM Room WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                Room s = new Room();
+                statement.setString(1, s.getName());
+                statement.setString(2, s.getImage());
+                statement.setInt(3, s.getPrice());
+                statement.setInt(4, s.getGuest());
+                statement.setInt(5, s.getSquare());
+                statement.setString(6, s.getDescription());
+
+                return s;
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public void insertRoom(Room s) {
+        try {
+            String sql = "INSERT INTO [dbo].[room]\n"
+                    + "           ([name]\n"
+                    + "           ,[image]\n"
+                    + "           ,[price]\n"
+                    + "           ,[guest]\n"
+                    + "           ,[square]\n"
+                    + "           ,[description])\n"
+                    + "     VALUES\n"
+                    + "           (?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?\n"
+                    + "           ,?)";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, s.getName());
+            statement.setString(2, s.getImage());
+            statement.setInt(3, s.getPrice());
+            statement.setInt(4, s.getGuest());
+            statement.setInt(5, s.getSquare());
+            statement.setString(6, s.getDescription());
+
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void updateRoom(Room s) {
+        try {
+            String sql = "UPDATE Room SET name = ?, image = ?, price= ?, guest =?, square =?, description=? WHERE id = ?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, s.getName());
+            statement.setString(2, s.getImage());
+            statement.setInt(3, s.getPrice());
+            statement.setInt(4, s.getGuest());
+            statement.setInt(5, s.getSquare());
+            statement.setString(6, s.getDescription());
+            statement.setInt(7, s.getId());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void deleteRoom(int id) {
+        try {
+            String sql = "DELETE Room WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(RoomDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

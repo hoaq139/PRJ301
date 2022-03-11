@@ -11,23 +11,24 @@ package model;
  */
 public class Services {
 
-    @Override
-    public String toString() {
-        return "Services{" + "id=" + id + ", name=" + name + ", price=" + price + '}';
-    }
+  
+    
     private int id;
     private String name;
     private int price;
+    private String time;
 
     public Services() {
     }
 
-    public Services(int id, String name, int price) {
+    public Services(int id, String name, int price, String time) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.time = time;
     }
 
+    
     public int getId() {
         return id;
     }
@@ -50,6 +51,19 @@ public class Services {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "Services{" + "id=" + id + ", name=" + name + ", price=" + price + ", time=" + time + '}';
     }
     
 }

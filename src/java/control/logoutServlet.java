@@ -5,27 +5,19 @@
  */
 package control;
 
-import DAL.RoomDAO;
-import DAL.ServicesDAO;
 import java.io.IOException;
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Room;
-import model.Services;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author win
  */
-public class searchControl extends HttpServlet {
+public class logoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,28 +31,9 @@ public class searchControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        RoomDAO daor = new RoomDAO();
-        List<Room> list1 = daor.getAllRoom();
-        ServicesDAO daos = new ServicesDAO();
-        List<Services> list2 = daos.getAllService();
-
-        request.setAttribute("listRoom", list1);
-        request.setAttribute("listService", list2);
-        //book
-        String checkin = request.getParameter("checkin");
-        String checkout = request.getParameter("checkout");
-        String adult = request.getParameter("adult");
-        String child = request.getParameter("child");
-        request.setAttribute("adult", adult);
-        request.setAttribute("child", child);
-        request.setAttribute("checkin", checkin);
-        request.setAttribute("checkout", checkout);
-        //service
-        String[] services = request.getParameterValues("service");
-        
-        
-        
-        request.getRequestDispatcher("search.jsp").forward(request, response);
+        HttpSession session = request.getSession();
+        session.removeAttribute("account");
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

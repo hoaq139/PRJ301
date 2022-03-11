@@ -31,6 +31,16 @@ public class Room {
         this.description = description;
     }
 
+    public Room(String name, String image, int price, int guest, int square, String description) {
+        this.name = name;
+        this.image = image;
+        this.price = price;
+        this.guest = guest;
+        this.square = square;
+        this.description = description;
+    }
+    
+
     
 
     public int getId() {

@@ -4,6 +4,7 @@
     Author     : win
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="java.sql.Date"%>
 <%@page import="DAL.AccountDAO"%>
 <%@page import="model.Account"%>
@@ -30,27 +31,41 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" type="text/css">
-          <%
-              Date checkin = (Date) request.getAttribute("checkin");
-              Date checkout = (Date) request.getAttribute("checkout");
-          %>
-        
+
     </head>
     <body>
         <header class="header" id="navigation-menu">
-            <div class="container">
+            <div class="container3">
                 <nav>
-                    <a href="#" class="logo"> <img src="../images/logo.png" alt=""> </a>
+                    <a href="#" class="logo" style="margin-left: 10rem;"> <img src="../images/logo.png" alt=""> </a>
 
-                    <ul class="nav-menu">
+                    <ul class="nav-menu" style="margin-right: 3rem;">
                         <li> <a href="#home" class="nav-link">Home</a> </li>
                         <li> <a href="#about" class="nav-link">About Us</a> </li>
                         <li> <a href="#room" class="nav-link">Rooms</a> </li>
                         <li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
                         <li> <a href="#gallary" class="nav-link">Gallery</a> </li>
                         <li> <a href="#contact" class="nav-link">Contact</a> </li>
-                        <li> <a href="#" class="nav-link">BOOK NOW</a> </li>
+
+                        <c:if test="${sessionScope.account==null}">
+                            <li>
+                                <a href="login.jsp" class="nav-link">MY ACCOUNT</a> 
+                            </li>
+                        </c:if>
+                        <c:if test="${sessionScope.account!=null}">
+                           
+                            <li><a class="nav-link" style="  background-color: #fff;
+                                   padding: 0.7rem;
+                                   font-size:0.8rem;
+                                   border-radius: 5px;
+                                   color: blue;
+                                   margin-right: 1rem;">${sessionScope.account.user}</a> </li>
+                            <a href="logout" class="nav-link1" style="padding: 0.54rem; color: #C1B086; background-color: #fff;">Logout</a>
+                     </c:if>
+                            
                     </ul>
+                                  
+                       
                     <div class="hambuger">
                         <span class="bar"></span>
                         <span class="bar"></span>
@@ -58,6 +73,7 @@
                     </div>
                 </nav>
             </div>
+              
         </header>
         <script>
             const hambuger = document.querySelector('.hambuger');
@@ -110,30 +126,38 @@
         </script>
         <section class="book">
             <form action="search" method="POST">
-            <div class="container flex">
-                <div class="input grid">
-                    <div class="box">
-                        <label>Check-in:</label>
-                        <input type="date" placeholder="Check-in-Date" name="checkin">
+                <div class="container flex">
+                    <p style="color: black;">${mess1}</p>
+                    <div class="input grid">
+
+                        <div class="box">
+                            <label>Check-in:</label>
+                            <input type="date" id="currentDate"  name="checkin" required="">
+                        </div>
+                        <script>
+                            var date = new Date();
+                            var currentDate = date.toISOString().slice(0, 10);
+                            document.getElementById('currentDate').value = currentDate;
+
+                        </script>
+                        <div class="box">
+                            <label>Check-out:</label>
+                            <input type="date"  name="checkout" required="">
+                        </div>
+                        <div class="box">
+                            <label>Adults:</label> <br>
+                            <input type="number" placeholder="0" name="adult" required="" min="0">
+                        </div>
+                        <div class="box">
+                            <label>Children:</label> <br>
+                            <input type="number" placeholder="0" name="child" required="" min="0">
+                        </div>
                     </div>
-                    <div class="box">
-                        <label>Check-out:</label>
-                        <input type="date" placeholder="Check-out-Date" name="checkout">
-                    </div>
-                    <div class="box">
-                        <label>Adults:</label> <br>
-                        <input type="number" placeholder="0" name="adult">
-                    </div>
-                    <div class="box">
-                        <label>Children:</label> <br>
-                        <input type="number" placeholder="0" name="child">
+                    <div class="search">
+                        <input type="submit" value="SEARCH">
                     </div>
                 </div>
-                <div class="search">
-                    <input type="submit" value="SEARCH">
-                </div>
-            </div>
-                </form>
+            </form>
         </section>
         <section class="about top" id="about">
             <div class="container flex">
