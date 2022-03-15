@@ -4,7 +4,6 @@
     Created on : Feb 26, 2022, 11:43:45 PM
     Author     : win
 --%>
-
 <%@page import="model.Services"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Room"%>
@@ -22,7 +21,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"
               integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A=="
               crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet"
               href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
               integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
@@ -30,11 +31,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/search.css" type="text/css">
-        <%
-            List<Room> list = (List<Room>) request.getAttribute("listRoom");
-
-
-        %>
+        <script src="../pagger.js"></script>
     </head>
 
     <body>
@@ -44,7 +41,7 @@
                     <a href="#" class="logo" style="margin-left: 10rem;"> <img src="../images/logo.png" alt=""> </a>
 
                     <ul class="nav-menu" style="margin-right: 3rem;">
-                        <li> <a href="#home" class="nav-link">Home</a> </li>
+                        <li> <a href="home.jsp" class="nav-link">Home</a> </li>
                         <li> <a href="#about" class="nav-link">About Us</a> </li>
                         <li> <a href="#room" class="nav-link">Rooms</a> </li>
                         <li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
@@ -108,59 +105,103 @@
             </div>
         </section>
         <section class="book">
-            <div class="container flex">
-                <div class="input grid">
-                    <div class="box">
-                        <label>Check-in:</label>
-                        <input type="date" placeholder="Check-in-Date" value="${checkin}">
+            <form action="search" method="POST">
+                <div class="container flex" style="height: 20vh;">
+                    <p style="color: black;">${mess1}</p>
+                    <div class="input grid">
+
+                        <div class="box">
+                            <label>Check-in:</label>
+                            <input type="date" id="currentDate"  name="checkin" required="" value="${checkin}">
+                        </div>
+                        <!--                        <script>
+                                                    var date = new Date();
+                                                    var currentDate = date.toISOString().slice(0, 10);
+                                                    document.getElementById('currentDate').value = currentDate;
+                        
+                                                </script>-->
+                        <div class="box">
+                            <label>Check-out:</label>
+                            <input type="date"  name="checkout" required="" value="${checkout}">
+                        </div>
+                        <div class="box">
+                            <label>Adults:</label> <br>
+                            <input type="number" id="adult" placeholder="0" name="adult" required="" min="0" value="${adult}">
+                        </div>
+                        <div class="box">
+                            <label>Children:</label> <br>
+                            <input type="number" id="child" placeholder="0" name="child" required="" min="0" value="${child}">
+                        </div>
                     </div>
-                    <div class="box">
-                        <label>Check-out:</label>
-                        <input type="date" placeholder="Check-out-Date" value="${checkout}">
-                    </div>
-                    <div class="box">
-                        <label>Adults:</label> <br>
-                        <input type="number" placeholder="0" value="${adult}"  min="0">
-                    </div>
-                    <div class="box">
-                        <label>Children:</label> <br>
-                        <input type="number" placeholder="0" value="${child}"  min="0">
+                    <div class="search" style="height: 20vh; margin-top:0;">
+                        <input  type="submit" value="SEARCH">
                     </div>
                 </div>
-            </div>
+            </form>
         </section>
         <section class="search">
             <div class="container">
-                <div class="view">
-                    <div class="services">
-                        <label>Services:</label><br>
-                        <c:forEach var="o" items="${requestScope.listService}">
-                            <input type="checkbox" name="service">&nbsp &nbsp <label style="font-size: 1.1rem;">${o.name}</label> : <span> ${o.price}$ ( ${o.time} )</span><br>
-                        </c:forEach>
-                        <p style="font-size: 1.5rem; color: #C1B086; font-weight:1rem;">Total: $</p>
+
+                <div class="row">
+                    <div class="col-md-4">
+
+                        <div class="services">
+                            <label>Services:</label><br>
+                            <c:forEach var="o" items="${requestScope.listService}">
+                                <input onClick="test(this);" type="checkbox"  name="service" value="${o.price}">&nbsp &nbsp <label style="font-size: 1.1rem;">${o.name}</label> : <span> ${o.price}$ ( ${o.time} )</span><br>
+                            </c:forEach>
+                            Total : <span id="Totalcost">$ </span>
+                        </div>
+                        <script type="text/javascript">
+                            var child = document.getElementById("child");
+                            var adult = document.getElementById("adult");
+                            var guest = parseInt(child.value) + parseInt(adult.value);
+                            var total = 0;
+                            function test(item) {
+                                if (item.checked) {
+                                    total = total+ (parseInt(item.value)*guest);
+                                } else {
+                                    total = total - (parseInt(item.value)*guest);
+                                }
+                                //alert(total);
+                                document.getElementById('Totalcost').innerHTML = total +'$';
+                            }
+                        </script>
                     </div>
-                    <div class="room-des">
-                        <c:forEach var="a" items="${requestScope.listRoom}">
-                            <img src="../${a.image}"alt="">
-                            <div class="room-text">
-                                <h3>${a.name}</h3>
-                                <div class="room-flex">
-                                    <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
-                                         alt="">
-                                    <p>${a.guest} GUEST</p>
-                                    <img style="margin-left: 1rem;"
-                                         src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
-                                         alt="">
-                                    <p>${a.square}m2</p>
+                    <div class="col-md-8 row">
+                        <div class="room-des row">
+                            <c:forEach var="a" items="${requestScope.listRoom}">
+                                <div class="col-md-6">
+                                    <form action="booking?id=${a.id}" method="POST">
+                                        <img src="../${a.image}"alt=""/>
+                                        <div class="room-text">
+                                            <h3>${a.name}</h3>
+                                            <div class="room-flex">
+                                                <img src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-user-grey.svg"
+                                                     alt="">
+                                                <p>${a.guest} GUEST</p>
+                                                <img class="img-2"
+                                                     src="http://www.nicdarkthemes.com/themes/hotel/wp/demo/hotel/wp-content/plugins/nd-booking/assets/img/icons/icon-plan-grey.svg"
+                                                     alt="">
+                                                <p>${a.square}m2</p>
+                                            </div>
+                                            <p>${a.description}</p>
+                                            <input type="submit" name="booknow" value="Book now for ${a.price}$">
+                                            <span></span>
+                                        </div>
                                 </div>
-                                <p>${a.description}</p>
-                                <input type="submit" name="booknow" value="Book now for ${a.price}$">
-                                <span></span>
-                            </div>
-                    </c:forEach>
+                                </form>     
+                            </c:forEach>
+                        </div>
                     </div>
                 </div>
+
             </div>
+            <div id="pagerbot"></div>
+            <script>
+                renderPagger('pagerbot',${requestScope.pageindex},${requestScope.totalpage}, 2);
+
+            </script>
         </section>
 
 
@@ -170,7 +211,7 @@
         <section class="map top">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14131.036667732067!2d85.32395955!3d27.69383745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2snp!4v1637755481449!5m2!1sen!2snp"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                width="600" height="450" style="border:0; margin-top: 5rem;" allowfullscreen="" loading="lazy"></iframe>
         </section>
         <footer>
             <div class="container grid top">

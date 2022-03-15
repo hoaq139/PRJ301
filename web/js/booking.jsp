@@ -104,23 +104,23 @@
             <div class="input grid">
                 <div class="box">
                     <label>Check-in:</label>
-                    <input type="date" placeholder="Check-in-Date" readonly="">
+                    <input type="date" placeholder="Check-in-Date" value="${checkin}" readonly="">
                 </div>
                 <div class="box">
                     <label>Check-out:</label>
-                    <input type="date" placeholder="Check-out-Date" readonly="">
+                    <input type="date" placeholder="Check-out-Date" value="${checkout}" readonly="">
                 </div>
                 <div class="box">
                     <label>Adults:</label>
-                    <input type="number" placeholder="0"  min="0">
+                    <input type="number" placeholder="0"  min="0" value="${adult}" readonly="">
                 </div>
                 <div class="box">
                     <label>Children:</label>
-                    <input type="number" placeholder="0"  min="0">
+                    <input type="number" placeholder="0"  min="0" value="${child}" readonly="">
                 </div>
                 <div class="box">
                     <label>Your room:</label>
-                    <input type="text" readonly="">
+                    <input type="text" readonly="" value="${roomName} - ${price}$">
                 </div>
                 <div class="box">
                     <label>Your servies:</label>
@@ -138,39 +138,48 @@
            <p>You are booking as guest, <a href="login.jsp"> LOGIN or REGISTER</a>  if you want to save your reservation on your account.</p>
         </div>
         <span class="bar1"></span>
+          <form action="bookingDetail" method="POST">
         <div class="information">
+          
             <p>Add Your Information:</p><br>
             <div class="left">
                 Name *<br>
-                <input type="text" name="name"><br>
+                <input type="text" name="name" required=""><br>
                 Email *<br>
-                <input type="text" name="email"><br>
+                <input type="email" name="email" required=""><br>
                 Address<br>
-                <input type="text" name="address"><br>
+                <input type="text" name="address" required=""><br>
                 Country<br>
-                <input type="text" name="country">
+                <input type="text" name="country" required="">
             </div>
             <div class="right">
                 Surname *<br>
-                <input type="text" name="surname"><br>
+                <input type="text" name="surname" required=""><br>
                 Telephone *<br>
-                <input type="text" name="phone"><br>
+                <input type="text" name="phone" required=""><br>
                 City<br>
-                <input type="text" name="city"><br>
+                <input type="text" name="city" required=""><br>
                 Zip<br>
-                <input type="text" name="zip">
+                <input type="text" name="zip" required="">
             </div>
         </div>
         <div class="infor-bottom">
             Request<br>
-            <textarea type="text" name="request" rows="6"></textarea><br>
+            <textarea type="text" name="requested" rows="6"></textarea><br>
         </div>
-        <input class="checkout" type="submit" value="CHECKOUT" name="checkout">
-            
+        <input class="checkout" type="submit" onclick="showMess()" value="CHECKOUT" name="checkout">
+            </form>
         
     </div>
 </section>
-
+<script>
+       function showMess(){
+           var option = confirm('Thanks for your booking. We will contact to you as soon as.');
+           if(option === true){
+               window.location.href = 'home.jsp';
+           }
+       }
+   </script>
 
     <section class="map top">
         <iframe

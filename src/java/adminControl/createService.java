@@ -5,20 +5,20 @@
  */
 package adminControl;
 
-import DAL.RoomDAO;
+import DAL.ServicesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Room;
+import model.Services;
 
 /**
  *
  * @author win
  */
-public class updateRoom extends HttpServlet {
+public class createService extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +37,10 @@ public class updateRoom extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet updateRoom</title>");            
+            out.println("<title>Servlet createService</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet updateRoom at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet createService at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +59,7 @@ public class updateRoom extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        int id = Integer.parseInt(request.getParameter("id"));
-        RoomDAO dao = new RoomDAO();
-        Room s = dao.getRoom(id);
-        request.setAttribute("s", s);
-        request.getRequestDispatcher("/admin/room/update.jsp").forward(request, response);
+        request.getRequestDispatcher("../services/add.jsp").forward(request, response);
     }
 
     /**
@@ -77,18 +73,15 @@ public class updateRoom extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
-       int id = Integer.parseInt(request.getParameter("id"));
-       String name = request.getParameter("name");
-       String image = request.getParameter("image");
-       int price = Integer.parseInt(request.getParameter("price"));
-       int guest = Integer.parseInt(request.getParameter("guest"));
-       int square = Integer.parseInt(request.getParameter("square"));
-       String description = request.getParameter("description");
-       RoomDAO dao = new RoomDAO();
-       Room room = new Room(id, name, image, price, guest, square, description);
-       dao.updateRoom(room);
-       response.sendRedirect("../room/roomList");
+        //processRequest(request, response);
+         String name = request.getParameter("name");
+         int price = Integer.parseInt(request.getParameter("price"));
+         String time = request.getParameter("time");
+         ServicesDAO dao = new ServicesDAO();
+         Services service = new Services(name, price, time);
+         dao.insertService(service);
+         response.sendRedirect("../services/serviceList");
+         
     }
 
     /**

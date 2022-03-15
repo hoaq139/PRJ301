@@ -32,6 +32,30 @@
         <servlet-name>updateRoom</servlet-name>
         <servlet-class>adminControl.updateRoom</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>createService</servlet-name>
+        <servlet-class>adminControl.createService</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>serviceList</servlet-name>
+        <servlet-class>adminControl.serviceList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateServices</servlet-name>
+        <servlet-class>adminControl.updateServices</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>bookingControl</servlet-name>
+        <servlet-class>control.bookingControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>bookingDetailControl</servlet-name>
+        <servlet-class>control.bookingDetailControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>profileControl</servlet-name>
+        <servlet-class>control.profileControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginControl</servlet-name>
         <url-pattern>/js/login</url-pattern>
@@ -63,6 +87,30 @@
     <servlet-mapping>
         <servlet-name>updateRoom</servlet-name>
         <url-pattern>/admin/room/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createService</servlet-name>
+        <url-pattern>/admin/services/create</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>serviceList</servlet-name>
+        <url-pattern>/admin/services/serviceList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateServices</servlet-name>
+        <url-pattern>/admin/services/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bookingControl</servlet-name>
+        <url-pattern>/js/booking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>bookingDetailControl</servlet-name>
+        <url-pattern>/js/bookingDetail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>profileControl</servlet-name>
+        <url-pattern>/js/profile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

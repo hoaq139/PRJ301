@@ -20,10 +20,11 @@ import model.Services;
  * @author win
  */
 public class ServicesDAO extends BaseDAO<Services> {
-    public List<Services> getAllService(){
+
+    public List<Services> getAllService() {
         List<Services> list = new ArrayList<>();
         try {
-            String sql ="SELECT *FROM services";
+            String sql = "SELECT *FROM services";
             PreparedStatement statement = connection.prepareStatement(sql);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
@@ -37,8 +38,9 @@ public class ServicesDAO extends BaseDAO<Services> {
         } catch (SQLException e) {
         }
         return list;
-        
+
     }
+
     public Services getService(int id) {
         try {
             String sql = "select *from services where id = ?";
@@ -51,7 +53,7 @@ public class ServicesDAO extends BaseDAO<Services> {
                 r.setName(rs.getString(2));
                 r.setPrice(rs.getInt(3));
                 r.setTime(rs.getString(4));
-
+                r.setId(id);
                 return r;
             }
 
@@ -66,9 +68,9 @@ public class ServicesDAO extends BaseDAO<Services> {
             String sql = "INSERT INTO [dbo].[services]\n"
                     + "           ([name]\n"
                     + "           ,[price]\n"
-                    + "           ,[time]\n"
+                    + "           ,[time])\n"
                     + "     VALUES\n"
-                    + "           ,?\n"
+                    + "           (?\n"
                     + "           ,?\n"
                     + "           ,?)";
             PreparedStatement statement = connection.prepareStatement(sql);
@@ -81,6 +83,7 @@ public class ServicesDAO extends BaseDAO<Services> {
             Logger.getLogger(ServicesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void updateService(Services s) {
         try {
             String sql = "UPDATE services SET name = ?, price= ?, time =? WHERE id = ?";
@@ -94,9 +97,10 @@ public class ServicesDAO extends BaseDAO<Services> {
             Logger.getLogger(ServicesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public void deleteService(int id) {
         try {
-            String sql = "DELETE Service WHERE id=?";
+            String sql = "DELETE Services WHERE id=?";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -104,13 +108,14 @@ public class ServicesDAO extends BaseDAO<Services> {
             Logger.getLogger(ServicesDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     public static void main(String[] args) {
         ServicesDAO dao = new ServicesDAO();
         List<Services> s = dao.getAllService();
         for (Services services : s) {
             System.out.println(services);
         }
-        
+
     }
-    
+
 }

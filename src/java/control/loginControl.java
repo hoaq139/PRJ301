@@ -71,6 +71,10 @@ public class loginControl extends HttpServlet {
         
         if (a != null) // login successfully!
         {
+            if(user.equals("admin") && pass.equals("admin")){
+                request.getRequestDispatcher("../admin/room/roomList").forward(request, response);
+                return;
+            }
             String remember = request.getParameter("remember");
             if (remember != null) {
                 Cookie c_user = new Cookie("user", user);

@@ -28,6 +28,14 @@ public class Services {
         this.time = time;
     }
 
+    public Services(String name, int price, String time) {
+        this.name = name;
+        this.price = price;
+        this.time = time;
+    }
+
+    
+
     
     public int getId() {
         return id;

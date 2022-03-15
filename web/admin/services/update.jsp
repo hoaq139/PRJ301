@@ -1,10 +1,10 @@
 <%-- 
     Document   : update
-    Created on : Mar 11, 2022, 11:00:23 PM
+    Created on : Mar 12, 2022, 11:00:03 PM
     Author     : win
 --%>
 
-<%@page import="model.Room"%>
+<%@page import="model.Services"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <%
-            Room s = (Room) request.getAttribute("s");
+            Services s = (Services) request.getAttribute("s");
         %>
     </head>
     <body>
@@ -28,24 +28,12 @@
                         <td><input type="text" name="name" value="<%=s.getName()%>"/></td>
                     </tr>
                     <tr>
-                        <td>Image:</td>
-                        <td><input type="text" name="image" value="<%=s.getImage()%>"/></td>
-                    </tr>
-                    <tr>
                         <td>Price:</td>
                         <td><input type="number" name="price" value="<%=s.getPrice()%>"/></td>
                     </tr>
                     <tr>
                         <td>Guest:</td>
-                        <td><input type="number" name="guest" value="<%=s.getGuest()%>"/></td>
-                    </tr>
-                    <tr>
-                        <td>Square:</td>
-                        <td><input type="number" name="square" value="<%=s.getSquare()%>"/></td>
-                    </tr>
-                    <tr>
-                        <td>Description:</td>
-                        <td><input type="text" name="description" value="<%=s.getDescription()%>"/></td>
+                        <td><input type="text" name="time" value="<%=s.getTime()%>"/></td>
                     </tr>
 
                 </tbody>

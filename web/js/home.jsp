@@ -54,7 +54,7 @@
                         </c:if>
                         <c:if test="${sessionScope.account!=null}">
                            
-                            <li><a class="nav-link" style="  background-color: #fff;
+                            <li><a href="profile" class="nav-link" style="  background-color: #fff;
                                    padding: 0.7rem;
                                    font-size:0.8rem;
                                    border-radius: 5px;
@@ -229,7 +229,7 @@
                         <h2>Rooms $ Suites</h2>
                     </div>
                     <div class="button">
-                        <button class="btn1">VIEW ALL</button>
+                        <button class="btn1"><a href="../js/search">VIEW ALL</a></button>
                     </div>
                 </div>
 
