@@ -6,12 +6,18 @@
 package control;
 
 import DAL.BookingDAO;
+import DAL.RoomDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Account;
+import model.Room;
+import model.bookingDetail;
 
 /**
  *
@@ -32,7 +38,7 @@ public class bookingDetailControl extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String fname = request.getParameter("name");
+        String fname = request.getParameter("fname");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
         String country = request.getParameter("country");
@@ -42,11 +48,46 @@ public class bookingDetailControl extends HttpServlet {
         String zip = request.getParameter("zip");
         String requested = request.getParameter("requested");
         String nameCust = fname + surname;
-        BookingDAO daob = new BookingDAO();
-        bookingDetailControl detail = new bookingDetailControl();
-        daob.insertBookingDetail(s);
+        String checkin = request.getParameter("checkin");
+        String checkout = request.getParameter("checkout");
+        String[] service = request.getParameterValues("service");
+        int price = Integer.parseInt( request.getParameter("price"));
+        String adult = request.getParameter("adult");
+        String child = request.getParameter("child");
+        
+        int guest = Integer.parseInt(child) + Integer.parseInt(adult);
+        Integer[] numbers = new Integer[service.length];
+        int sum=0;
+        int total = 0;
+        for (int i = 0; i < service.length; i++) {
+            try {
+                numbers[i] = Integer.parseInt(service[i]);
+                total += (numbers[i])*guest;
+            } catch (NumberFormatException nfe) {
+                numbers[i] = null;
+                
+            }
+        }
+        HttpSession session=request.getSession(true);  
+        Account account = (Account) session.getAttribute("account");
+        String name = request.getParameter("name");
+        BookingDAO dao = new BookingDAO();
+        Room room = dao.getRoom(name);
+        sum = total + price;
+        request.setAttribute("sum", sum);
+        request.setAttribute("price", price);
+        request.setAttribute("total", total);
+        bookingDetail detail = new bookingDetail();
+        if(account != null){
+        detail = new bookingDetail(account.getId(),room.getId(), checkin, checkout, guest, nameCust, email, phone, address, city, country, zip, sum, requested);
+        }else{
+            detail = new bookingDetail(-1,room.getId(), checkin, checkout, guest, nameCust, email, phone, address, city, country, zip, sum, requested);
+        }
+//    response.getWriter().print(detail);
+        dao.insertBookingDetail(detail);
+        request.getRequestDispatcher("thankyou.jsp").forward(request, response);
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

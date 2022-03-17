@@ -3,20 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package control;
+package adminControl;
 
+import DAL.BookingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.bookingDetail;
 
 /**
  *
  * @author win
  */
-public class profileControl extends HttpServlet {
+public class detaiListControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,8 +34,11 @@ public class profileControl extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       // Booking a = request.getSession().getAttribute("account");
-        request.getRequestDispatcher("profile.jsp").forward(request, response);
+         BookingDAO dao = new BookingDAO();
+        List<bookingDetail> list = new ArrayList<>();
+        list = dao.getAllDetail();
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("detail.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,6 +54,7 @@ public class profileControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+      
     }
 
     /**
@@ -60,8 +68,7 @@ public class profileControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        
+        processRequest(request, response);
     }
 
     /**

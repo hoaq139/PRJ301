@@ -168,7 +168,34 @@ header ul li a:hover {
     position: relative;
   }
   /*--------------home--------*/
+   /*-----------service-----------*/
+
+  .services label{
+      font-size: 130%;
+  }
+  .services span{
+    color: #878788;
+  }
+  .services{
+    background-color: rgb(234, 242, 250);
+    padding-left: 1rem;
+    padding-top: 1rem;
+    line-height: 2.5rem;
+    border:  2px solid #C1B086;
+    box-shadow: 5px 5px #d3c9af;
+    width: 83%;
+    height: 80%;
+  }
+  .search{
+      margin-bottom: 2rem;
+     
+  }
+  /*------------service-----------*/
   /*--------------book--------*/
+  .fix-grid{
+      display: grid;
+      grid-template-columns: 40% 60%;
+  }
 .flex {
     display: flex;
   }
@@ -182,23 +209,23 @@ header ul li a:hover {
     /* width: 99%;
     height: 20vh; */
     color: white;
-    margin-left: 12%;
+    margin-left: 17%;
+  
   }
   .booking-infor{
-    display: grid;
-    grid-template-columns: 30% 70%;
+   
     margin-top: 20%;
   }
   .infor-add{
     margin-right: 10%;
-    margin-bottom: 3%;
-    padding-left: 5px;
+    margin-bottom: 2%;
   }
   .bar1{
     display: block;
-    width: 58rem;
+    width: 80rem;
     height: 2px;
    background-color: #C1B086;
+    margin-bottom: 2%;
   }
   .infor-add p{
     background-color: #c19b77;
@@ -214,7 +241,7 @@ header ul li a:hover {
  
   } 
   .information input{
-    width: 25rem;
+    width: 36rem;;
     height: 2.5rem;
     margin-top: 0.5rem;
     margin-bottom: 2rem;
@@ -248,7 +275,7 @@ header ul li a:hover {
   border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
   border-image: initial;
   padding: 2px;
-  width: 54rem;
+  width: 74rem;
   height: 6rem;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
@@ -264,6 +291,7 @@ header ul li a:hover {
    padding: 0.7rem 2rem ;
    color: #fff;
    border: #C19B77;
+   margin-left: 10rem;
  }
  .infor-bottom{
   font-family: 'Times New Roman', Times, serif;
@@ -271,7 +299,7 @@ header ul li a:hover {
  }
   .information{
     display: grid;
-    grid-template-columns: 45% 55%;
+    grid-template-columns: 50% 50%;
     font-family: 'Times New Roman', Times, serif;
  
   } 
@@ -280,11 +308,11 @@ header ul li a:hover {
   }
   .book .input {
     background: #242e5a;
-    padding: 20px 20px 40px 20px;
+    padding: 30px 88px 39px 36px;
   }
   
  .book input {
-    width: 100%;
+    width: 120%;
     padding: 15px;
     border: 2px solid rgba(255, 255, 255, 0.1);
     outline: none;
@@ -301,7 +329,7 @@ header ul li a:hover {
     background: none;
     border: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 40px;
     margin-top: 40px;
   }
   

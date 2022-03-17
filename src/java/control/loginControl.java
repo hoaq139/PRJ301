@@ -6,6 +6,7 @@
 package control;
 
 import DAL.AccountDAO;
+import DAL.BookingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -87,13 +88,16 @@ public class loginControl extends HttpServlet {
             }
             HttpSession session = request.getSession();
             session.setAttribute("account", a);
+//            Account b = (Account) session.getAttribute("account");
+//            response.getWriter().print(b);
             response.sendRedirect("home.jsp");
         } else //login fail
-        {
+        { 
+            
             request.setAttribute("mess", "Wrong username or password");
             request.setAttribute("user", user);
             request.setAttribute("pass", pass);
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+           request.getRequestDispatcher("login.jsp").forward(request, response);
         }
        
         

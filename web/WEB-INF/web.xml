@@ -56,6 +56,14 @@
         <servlet-name>profileControl</servlet-name>
         <servlet-class>control.profileControl</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>detaiListControl</servlet-name>
+        <servlet-class>adminControl.detaiListControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteDetailControl</servlet-name>
+        <servlet-class>adminControl.deleteDetailControl</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>loginControl</servlet-name>
         <url-pattern>/js/login</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>profileControl</servlet-name>
         <url-pattern>/js/profile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>detaiListControl</servlet-name>
+        <url-pattern>/admin/bookingdetail/detaiList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deleteDetailControl</servlet-name>
+        <url-pattern>/admin/bookingdetail/delete</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

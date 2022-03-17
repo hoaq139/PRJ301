@@ -36,7 +36,7 @@
                     <td>${o.guest}</td>
                     <td>${o.square}</td>
                     <td>${o.description}</td>
-                    <td><a href="update?id=${o.id}">Update</a>
+                    <td><a href="../room/update?id=${o.id}">Update</a>
                         <a href="#" onclick = "showMess(${o.id})">Delete</a></td>
                 </tr>
                
@@ -46,14 +46,14 @@
         </table>
         <a href="../admin/room/create">Create</a><br>
         
-        <a href="../admin/services/serviceList">Control Services</a>
-
+        <a href="../services/serviceList">Control Services</a><br>
+        <a href="../bookingdetail/detailList">View Booking Detail Of Customer</a>
     </body>
     <script>
        function showMess(id){
            var option = confirm('Are you sure to delete?');
            if(option === true){
-               window.location.href = 'delete?id=' +id;
+               window.location.href = '../admin/room/delete?id=' +id;
            }
        }
    </script>

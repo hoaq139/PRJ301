@@ -60,7 +60,7 @@
                                    font-size:0.8rem;
                                    border-radius: 5px;
                                    color: blue;
-                                   margin-right: 1rem;">${sessionScope.account.user}</a> </li>
+                                   margin-right: 1rem;" href="profile">${sessionScope.account.user}</a> </li>
                             <a href="logout" class="nav-link1" style="padding: 0.54rem; color: #C1B086; background-color: #fff;">Logout</a>
                         </c:if>
 
@@ -114,12 +114,6 @@
                             <label>Check-in:</label>
                             <input type="date" id="currentDate"  name="checkin" required="" value="${checkin}">
                         </div>
-                        <!--                        <script>
-                                                    var date = new Date();
-                                                    var currentDate = date.toISOString().slice(0, 10);
-                                                    document.getElementById('currentDate').value = currentDate;
-                        
-                                                </script>-->
                         <div class="box">
                             <label>Check-out:</label>
                             <input type="date"  name="checkout" required="" value="${checkout}">
@@ -143,35 +137,9 @@
             <div class="container">
 
                 <div class="row">
-                    <div class="col-md-4">
-
-                        <div class="services">
-                            <label>Services:</label><br>
-                            <c:forEach var="o" items="${requestScope.listService}">
-                                <input onClick="test(this);" type="checkbox"  name="service" value="${o.price}">&nbsp &nbsp <label style="font-size: 1.1rem;">${o.name}</label> : <span> ${o.price}$ ( ${o.time} )</span><br>
-                            </c:forEach>
-                            Total : <span id="Totalcost">$ </span>
-                        </div>
-                        <script type="text/javascript">
-                            var child = document.getElementById("child");
-                            var adult = document.getElementById("adult");
-                            var guest = parseInt(child.value) + parseInt(adult.value);
-                            var total = 0;
-                            function test(item) {
-                                if (item.checked) {
-                                    total = total+ (parseInt(item.value)*guest);
-                                } else {
-                                    total = total - (parseInt(item.value)*guest);
-                                }
-                                //alert(total);
-                                document.getElementById('Totalcost').innerHTML = total +'$';
-                            }
-                        </script>
-                    </div>
-                    <div class="col-md-8 row">
                         <div class="room-des row">
                             <c:forEach var="a" items="${requestScope.listRoom}">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <form action="booking?id=${a.id}" method="POST">
                                         <img src="../${a.image}"alt=""/>
                                         <div class="room-text">
@@ -189,9 +157,11 @@
                                             <input type="submit" name="booknow" value="Book now for ${a.price}$">
                                             <span></span>
                                         </div>
+                                            </form> 
                                 </div>
-                                </form>     
+                             
                             </c:forEach>
+                             
                         </div>
                     </div>
                 </div>

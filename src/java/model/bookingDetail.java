@@ -11,7 +11,11 @@ package model;
  */
 public class bookingDetail {
     private int id;
-    private Account a;
+    private int account;
+    private int room;
+    private String checkin;
+    private String checkout;
+    private int guest;
     private String custName;
     private String email;
     private String phone;
@@ -20,13 +24,18 @@ public class bookingDetail {
     private String country;
     private String zip;
     private String requested;
-    private Booking b;
+    private int total;
 
     public bookingDetail() {
     }
 
-    public bookingDetail(Account a, String custName, String email, String phone, String address, String city, String country, String zip, String requested, Booking b) {
-        this.a = a;
+    public bookingDetail(int id, int account, int room, String checkin, String checkout, int guest, String custName, String email, String phone, String address, String city, String country, String zip, String requested, int total) {
+        this.id = id;
+        this.account = account;
+        this.room = room;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.guest = guest;
         this.custName = custName;
         this.email = email;
         this.phone = phone;
@@ -35,7 +44,24 @@ public class bookingDetail {
         this.country = country;
         this.zip = zip;
         this.requested = requested;
-        this.b = b;
+        this.total = total;
+    }
+
+    public bookingDetail(int account, int room, String checkin, String checkout, int guest, String custName, String email, String phone, String address, String city, String country, String zip, int total, String requested) {
+        this.account = account;
+        this.room = room;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.guest = guest;
+        this.custName = custName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+        this.requested = requested;
+        this.total = total;
     }
 
     public int getId() {
@@ -46,12 +72,44 @@ public class bookingDetail {
         this.id = id;
     }
 
-    public Account getA() {
-        return a;
+    public int getAccount() {
+        return account;
     }
 
-    public void setA(Account a) {
-        this.a = a;
+    public void setAccount(int account) {
+        this.account = account;
+    }
+
+    public int getRoom() {
+        return room;
+    }
+
+    public void setRoom(int room) {
+        this.room = room;
+    }
+
+    public String getCheckin() {
+        return checkin;
+    }
+
+    public void setCheckin(String checkin) {
+        this.checkin = checkin;
+    }
+
+    public String getCheckout() {
+        return checkout;
+    }
+
+    public void setCheckout(String checkout) {
+        this.checkout = checkout;
+    }
+
+    public int getGuest() {
+        return guest;
+    }
+
+    public void setGuest(int guest) {
+        this.guest = guest;
     }
 
     public String getCustName() {
@@ -118,13 +176,20 @@ public class bookingDetail {
         this.requested = requested;
     }
 
-    public Booking getB() {
-        return b;
+    public int getTotal() {
+        return total;
     }
 
-    public void setB(Booking b) {
-        this.b = b;
+    public void setTotal(int total) {
+        this.total = total;
     }
+
+    @Override
+    public String toString() {
+        return "bookingDetail{" + "id=" + id + ", account=" + account + ", room=" + room + ", checkin=" + checkin + ", checkout=" + checkout + ", guest=" + guest + ", custName=" + custName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", city=" + city + ", country=" + country + ", zip=" + zip + ", requested=" + requested + ", total=" + total + '}';
+    }
+
     
+   
 }
 

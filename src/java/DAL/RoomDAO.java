@@ -75,7 +75,7 @@ public class RoomDAO extends BaseDAO<Room> {
         try {
             String sql = "SELECT id,name,image,price,guest,square,description FROM\n"
                     + "(SELECT ROW_NUMBER() OVER (ORDER BY ID ASC) AS [Row], *FROM Room) AS T \n"
-                    + "WHERE [Row] >= (?-1)*? +1 AND [Row] <= ?*?";
+                    + "WHERE [Row] >= (?-1)*? +1 AND [Row] <= ?*? ORDER BY guest desc";
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, pageIndex);
             statement.setInt(2, pageSize);
