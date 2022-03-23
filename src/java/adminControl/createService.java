@@ -80,7 +80,7 @@ public class createService extends HttpServlet {
          ServicesDAO dao = new ServicesDAO();
          Services service = new Services(name, price, time);
          dao.insertService(service);
-         response.sendRedirect("../services/serviceList");
+        response.sendRedirect("../room/roomList");
          
     }
 

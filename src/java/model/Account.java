@@ -30,6 +30,12 @@ public class Account {
         this.pass = pass;
         this.email = email;
     }
+
+    public Account(String user, String pass) {
+        this.user = user;
+        this.pass = pass;
+    }
+
     
     public int getId() {
         return id;

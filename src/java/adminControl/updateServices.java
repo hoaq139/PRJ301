@@ -59,7 +59,7 @@ public class updateServices extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("idd"));
         ServicesDAO dao = new ServicesDAO();
         Services s = dao.getService(id);
          request.setAttribute("s", s);
@@ -86,7 +86,7 @@ public class updateServices extends HttpServlet {
        ServicesDAO dao = new ServicesDAO();
         Services s =  new Services(id, name, price, time);
         dao.updateService(s);
-         response.sendRedirect("../services/serviceList");
+         response.sendRedirect("../room/roomList");
     }
 
     /**

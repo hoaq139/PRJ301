@@ -5,21 +5,20 @@
  */
 package adminControl;
 
-import DAL.ServicesDAO;
+import DAL.BookingDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Services;
+import model.bookingDetail;
 
 /**
  *
  * @author win
  */
-public class serviceList extends HttpServlet {
+public class updateBookingControl extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,10 +32,7 @@ public class serviceList extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ServicesDAO dao = new ServicesDAO();
-        List<Services> listServices = dao.getAllService();
-        request.setAttribute("listServices", listServices);
-        request.getRequestDispatcher("services.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -51,7 +47,13 @@ public class serviceList extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        // processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("iddd"));
+        BookingDAO dao = new BookingDAO();
+        bookingDetail details = new bookingDetail();
+        details = dao.getDetailById(id);
+        request.setAttribute("s", details);
+        request.getRequestDispatcher("/admin/room/update2.jsp").forward(request, response);
     }
 
     /**
@@ -65,7 +67,27 @@ public class serviceList extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        int id = Integer.parseInt(request.getParameter("id")) ;
+        int custid = Integer.parseInt(request.getParameter("custid"));
+        int roomid = Integer.parseInt(request.getParameter("roomid"));
+        String servicesid = request.getParameter("servicesid");
+        String checkin = request.getParameter("checkin");
+        String checkout = request.getParameter("checkout");
+        int guest = Integer.parseInt(request.getParameter("guest"));
+         String custname = request.getParameter("custname");
+        String email = request.getParameter("email");
+         String phone = request.getParameter("phone");
+        String address = request.getParameter("address");
+        String city = request.getParameter("city");
+        String country = request.getParameter("country");
+        String zip = request.getParameter("zip");
+        String requested = request.getParameter("requested");
+        int total = Integer.parseInt(request.getParameter("total"));
+        BookingDAO dao = new BookingDAO();
+        bookingDetail details = new bookingDetail(id, custid, roomid, checkin, checkout, guest, custname, email, phone, address, city, country, zip, requested, total, servicesid);
+        dao.updateBookingDetail(details);
+         response.sendRedirect("../room/roomList");
     }
 
     /**

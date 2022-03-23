@@ -33,10 +33,10 @@ public class deleteServices extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("idd"));
         ServicesDAO dao = new ServicesDAO();
         dao.deleteService(id);
-       response.sendRedirect("../services/serviceList");
+        response.sendRedirect("../room/roomList");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

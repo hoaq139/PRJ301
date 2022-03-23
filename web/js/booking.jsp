@@ -149,9 +149,9 @@
                         <div class="services" >
                             <label>Services:</label><br>
                             <c:forEach var="o" items="${requestScope.listService}">
-                                <input onClick="test(this);" type="checkbox"  name="service" value="${o.price}">&nbsp &nbsp <label style="font-size: 1.1rem;">${o.name}</label> : <span> ${o.price}$ ( ${o.time} )</span><br>
+                                <input onClick="test(this);" type="checkbox"  name="service" value="${o.id}">&nbsp &nbsp <label style="font-size: 1.1rem;">${o.name}</label> : <span> ${o.price}$ ( ${o.time} )</span><br>
                             </c:forEach>
-                            Total : <span id="Totalcost">$ </span>
+<!--                            Total : <span id="Totalcost">$ </span>-->
                         </div>
                                 </section>
                         <script type="text/javascript">

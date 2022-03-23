@@ -25,6 +25,7 @@ public class bookingDetail {
     private String zip;
     private String requested;
     private int total;
+    private String services;
 
     public bookingDetail() {
     }
@@ -47,7 +48,8 @@ public class bookingDetail {
         this.total = total;
     }
 
-    public bookingDetail(int account, int room, String checkin, String checkout, int guest, String custName, String email, String phone, String address, String city, String country, String zip, int total, String requested) {
+
+    public bookingDetail(int account, int room, String checkin, String checkout, int guest, String custName, String email, String phone, String address, String city, String country, String zip, int total, String requested, String services) {
         this.account = account;
         this.room = room;
         this.checkin = checkin;
@@ -62,8 +64,55 @@ public class bookingDetail {
         this.zip = zip;
         this.requested = requested;
         this.total = total;
+        this.services = services;
     }
 
+    public bookingDetail(int id, int account, int room, String checkin, String checkout, int guest, String custName, String email, String phone, String address, String city, String country, String zip, String requested, int total, String services) {
+        this.id = id;
+        this.account = account;
+        this.room = room;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.guest = guest;
+        this.custName = custName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+        this.requested = requested;
+        this.total = total;
+        this.services = services;
+    }
+    
+    public bookingDetail(int account, int room, String checkin, String checkout, int guest, String custName, String email, String phone, String address, String city, String country, String zip, String requested, int total, String services) {
+        this.account = account;
+        this.room = room;
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.guest = guest;
+        this.custName = custName;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.city = city;
+        this.country = country;
+        this.zip = zip;
+        this.requested = requested;
+        this.total = total;
+        this.services = services;
+    }
+    
+    public String getServices() {
+        return services;
+    }
+
+    public void setServices(String services) {
+        this.services = services;
+    }
+
+    
     public int getId() {
         return id;
     }
@@ -186,8 +235,10 @@ public class bookingDetail {
 
     @Override
     public String toString() {
-        return "bookingDetail{" + "id=" + id + ", account=" + account + ", room=" + room + ", checkin=" + checkin + ", checkout=" + checkout + ", guest=" + guest + ", custName=" + custName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", city=" + city + ", country=" + country + ", zip=" + zip + ", requested=" + requested + ", total=" + total + '}';
+        return "bookingDetail{" + "id=" + id + ", account=" + account + ", room=" + room + ", checkin=" + checkin + ", checkout=" + checkout + ", guest=" + guest + ", custName=" + custName + ", email=" + email + ", phone=" + phone + ", address=" + address + ", city=" + city + ", country=" + country + ", zip=" + zip + ", requested=" + requested + ", total=" + total + ", services=" + services + '}';
     }
+
+  
 
     
    

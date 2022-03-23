@@ -73,7 +73,11 @@ public class loginControl extends HttpServlet {
         if (a != null) // login successfully!
         {
             if(user.equals("admin") && pass.equals("admin")){
-                request.getRequestDispatcher("../admin/room/roomList").forward(request, response);
+                //request.getRequestDispatcher("../admin/room/roomList").forward(request, response);
+                a= new Account("admin", "admin");
+                HttpSession session = request.getSession();
+            session.setAttribute("account", a);
+                response.sendRedirect("../admin/room/roomList");
                 return;
             }
             String remember = request.getParameter("remember");

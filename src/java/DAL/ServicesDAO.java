@@ -40,7 +40,44 @@ public class ServicesDAO extends BaseDAO<Services> {
         return list;
 
     }
+    public List<Services> getAllServiceById(String id) {
+        List<Services> list = new ArrayList<>();
+        try {
+            String sql = "SELECT *FROM services where id =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+             statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Services s = new Services();
+                s.setId(rs.getInt(1));
+                s.setName(rs.getString(2));
+                s.setPrice(rs.getInt(3));
+                s.setTime(rs.getString(4));
+                list.add(s);
+            }
+        } catch (SQLException e) {
+        }
+        return list;
 
+    }
+    public int getPriceById(String id) {
+        List<Services> list = new ArrayList<>();
+        try {
+            String sql = "SELECT price FROM services where id =?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+             statement.setString(1, id);
+            ResultSet rs = statement.executeQuery();
+            Services s = new Services();
+            while (rs.next()) {
+                s.setPrice(rs.getInt(1));
+            }
+              return s.getPrice();
+        } catch (SQLException e) {
+        }
+        return 0;
+      
+
+    }
     public Services getService(int id) {
         try {
             String sql = "select *from services where id = ?";
@@ -62,7 +99,7 @@ public class ServicesDAO extends BaseDAO<Services> {
         }
         return null;
     }
-
+    
     public void insertService(Services s) {
         try {
             String sql = "INSERT INTO [dbo].[services]\n"

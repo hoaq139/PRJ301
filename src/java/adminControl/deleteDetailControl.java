@@ -34,7 +34,7 @@ public class deleteDetailControl extends HttpServlet {
          int id = Integer.parseInt(request.getParameter("id"));
           BookingDAO dao = new BookingDAO();
           dao.deleteDetail(id);
-         response.sendRedirect("../bookingdetail/detaiList");
+         response.sendRedirect("../room/roomList");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

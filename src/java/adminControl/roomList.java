@@ -5,14 +5,19 @@
  */
 package adminControl;
 
+import DAL.BookingDAO;
 import DAL.RoomDAO;
+import DAL.ServicesDAO;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Room;
+import model.Services;
+import model.bookingDetail;
 
 /**
  *
@@ -35,7 +40,16 @@ public class roomList extends HttpServlet {
         RoomDAO dao = new RoomDAO();
         List<Room> listRoom = dao.getAllRoom();
         request.setAttribute("listRoom", listRoom);
-        request.getRequestDispatcher("admin.jsp").forward(request, response);
+        //services
+         ServicesDAO dao1 = new ServicesDAO();
+        List<Services> listServices = dao1.getAllService();
+        request.setAttribute("listServices", listServices);
+        //bookingdetail
+         BookingDAO dao2 = new BookingDAO();
+        List<bookingDetail> list = new ArrayList<>();
+        list = dao2.getAllDetail();
+        request.setAttribute("list", list);
+        request.getRequestDispatcher("admin2.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

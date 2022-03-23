@@ -7,6 +7,7 @@ package control;
 
 import DAL.BookingDAO;
 import DAL.RoomDAO;
+import DAL.ServicesDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
@@ -54,20 +55,27 @@ public class bookingDetailControl extends HttpServlet {
         int price = Integer.parseInt( request.getParameter("price"));
         String adult = request.getParameter("adult");
         String child = request.getParameter("child");
-        
+        ServicesDAO dao3 = new ServicesDAO();
         int guest = Integer.parseInt(child) + Integer.parseInt(adult);
         Integer[] numbers = new Integer[service.length];
         int sum=0;
         int total = 0;
-        for (int i = 0; i < service.length; i++) {
-            try {
-                numbers[i] = Integer.parseInt(service[i]);
-                total += (numbers[i])*guest;
-            } catch (NumberFormatException nfe) {
-                numbers[i] = null;
-                
-            }
+        int price3 = 0;
+        for (String se : service) {
+            price3 = dao3.getPriceById(se);
+            total += price3*guest;
         }
+        
+//        for (int i = 0; i < service.length; i++) {
+//            try {
+//                
+//                numbers[i] = Integer.parseInt(service[i]);
+//                total += (numbers[i])*guest;
+//            } catch (NumberFormatException nfe) {
+//                numbers[i] = null;
+//                
+//            }
+//        }
         HttpSession session=request.getSession(true);  
         Account account = (Account) session.getAttribute("account");
         String name = request.getParameter("name");
@@ -79,12 +87,20 @@ public class bookingDetailControl extends HttpServlet {
         request.setAttribute("total", total);
         bookingDetail detail = new bookingDetail();
         if(account != null){
-        detail = new bookingDetail(account.getId(),room.getId(), checkin, checkout, guest, nameCust, email, phone, address, city, country, zip, sum, requested);
+            for (String s : service) {
+               detail = new bookingDetail(account.getId(),room.getId(), checkin, checkout, guest, nameCust, email, phone, address, city, country, zip, sum, requested, s);
+                 dao.insertBookingDetail(detail);
+                // response.getWriter().print(detail);
+            }
         }else{
-            detail = new bookingDetail(-1,room.getId(), checkin, checkout, guest, nameCust, email, phone, address, city, country, zip, sum, requested);
+            for (String s : service) {
+               detail = new bookingDetail(-1,room.getId(), checkin, checkout, guest, nameCust, email, phone, address, city, country, zip, sum, requested, s);
+                 dao.insertBookingDetail(detail);
+                // response.getWriter().print(detail);
+            }
         }
 //    response.getWriter().print(detail);
-        dao.insertBookingDetail(detail);
+      
         request.getRequestDispatcher("thankyou.jsp").forward(request, response);
     }
 

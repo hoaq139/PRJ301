@@ -37,10 +37,6 @@
         <servlet-class>adminControl.createService</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>serviceList</servlet-name>
-        <servlet-class>adminControl.serviceList</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>updateServices</servlet-name>
         <servlet-class>adminControl.updateServices</servlet-class>
     </servlet>
@@ -63,6 +59,14 @@
     <servlet>
         <servlet-name>deleteDetailControl</servlet-name>
         <servlet-class>adminControl.deleteDetailControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>updateBookingControl</servlet-name>
+        <servlet-class>adminControl.updateBookingControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>createBookingDetailControl</servlet-name>
+        <servlet-class>adminControl.createBookingDetailControl</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginControl</servlet-name>
@@ -101,10 +105,6 @@
         <url-pattern>/admin/services/create</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>serviceList</servlet-name>
-        <url-pattern>/admin/services/serviceList</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>updateServices</servlet-name>
         <url-pattern>/admin/services/update</url-pattern>
     </servlet-mapping>
@@ -127,6 +127,14 @@
     <servlet-mapping>
         <servlet-name>deleteDetailControl</servlet-name>
         <url-pattern>/admin/bookingdetail/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>updateBookingControl</servlet-name>
+        <url-pattern>/admin/bookingdetail/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>createBookingDetailControl</servlet-name>
+        <url-pattern>/admin/bookingdetail/create</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
