@@ -3,12 +3,42 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/adminControl/updateBookingControl.java</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/adminControl/createRoom.java</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/web/admin/room/add2.jsp</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/DAL/BookingDAO.java</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/src/java/adminControl/createBookingDetailControl.java</file>
-            <file>file:/C:/Users/win/OneDrive/Documents/GitHub/hotelBooking/web/admin/room/update2.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/admin2.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/home.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/login.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/change.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/UpdateCategory.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/AdminNews.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/ChangePassword.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/add.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/Profile.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/AddCategory.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/WEB-INF/web.xml</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/style.css</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/loginControl.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/DAL/UserDao.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/DAL/CommentDao.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/logoutServlet.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/updateCategory.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/CommentController.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/DeleteNews.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/DeleteCategory.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/DAL/BaseDAO.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/CategoryServlet.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/DAL/CategoryDao.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/profile.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/model/News.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/UpdateNews.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/detail.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/updateNew.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/model/User.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/web/addC.jsp</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/DetailController.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/AddNewsController.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/DAL/NewsDao.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/model/Roles.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/controller/NewListController.java</file>
+            <file>file:/Users/hoangdinh/NetBeansProjects/News-3/src/java/DAL/DBContext.java</file>
         </group>
     </open-files>
 </project-private>

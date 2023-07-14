@@ -21,7 +21,9 @@ body {
     font-family: 'Roboto Slab', serif;
     scroll-behavior: smooth;
 }
-
+.category a{
+    
+}
 li {
     list-style: none;
 }
@@ -249,7 +251,7 @@ header ul li a:hover {
     width: 100%;
   }
   .search{
-      margin-top: 2rem;
+      margin-top: 0rem;
   }
   /*------------service-----------*/
 /*----------------room-------------*/

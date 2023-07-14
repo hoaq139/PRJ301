@@ -1,144 +1,136 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>loginControl</servlet-name>
-        <servlet-class>control.loginControl</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>signupControl</servlet-name>
-        <servlet-class>control.signupControl</servlet-class>
+        <servlet-class>controller.signupControl</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>searchControl</servlet-name>
-        <servlet-class>control.searchControl</servlet-class>
+        <servlet-name>DetailController</servlet-name>
+        <servlet-class>controller.DetailController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>roomList</servlet-name>
-        <servlet-class>adminControl.roomList</servlet-class>
+        <servlet-name>NewListController</servlet-name>
+        <servlet-class>controller.NewListController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>createRoom</servlet-name>
-        <servlet-class>adminControl.createRoom</servlet-class>
+        <servlet-name>loginControl</servlet-name>
+        <servlet-class>controller.loginControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>controller.CategoryServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>control.logoutServlet</servlet-class>
+        <servlet-class>controller.logoutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>deleteRoom</servlet-name>
-        <servlet-class>adminControl.deleteRoom</servlet-class>
+        <servlet-name>CommentController</servlet-name>
+        <servlet-class>controller.CommentController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>updateRoom</servlet-name>
-        <servlet-class>adminControl.updateRoom</servlet-class>
+        <servlet-name>AdminNews</servlet-name>
+        <servlet-class>controller.AdminNews</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>createService</servlet-name>
-        <servlet-class>adminControl.createService</servlet-class>
+        <servlet-name>AddNewsController</servlet-name>
+        <servlet-class>controller.AddNewsController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>updateServices</servlet-name>
-        <servlet-class>adminControl.updateServices</servlet-class>
+        <servlet-name>DeleteNews</servlet-name>
+        <servlet-class>controller.DeleteNews</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>bookingControl</servlet-name>
-        <servlet-class>control.bookingControl</servlet-class>
+        <servlet-name>AddCategory</servlet-name>
+        <servlet-class>controller.AddCategory</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>bookingDetailControl</servlet-name>
-        <servlet-class>control.bookingDetailControl</servlet-class>
+        <servlet-name>DeleteCategory</servlet-name>
+        <servlet-class>controller.DeleteCategory</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>profileControl</servlet-name>
-        <servlet-class>control.profileControl</servlet-class>
+        <servlet-name>UpdateNews</servlet-name>
+        <servlet-class>controller.UpdateNews</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>detaiListControl</servlet-name>
-        <servlet-class>adminControl.detaiListControl</servlet-class>
+        <servlet-name>UpdateCategory</servlet-name>
+        <servlet-class>controller.UpdateCategory</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>deleteDetailControl</servlet-name>
-        <servlet-class>adminControl.deleteDetailControl</servlet-class>
+        <servlet-name>Profile</servlet-name>
+        <servlet-class>controller.Profile</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>updateBookingControl</servlet-name>
-        <servlet-class>adminControl.updateBookingControl</servlet-class>
+        <servlet-name>change</servlet-name>
+        <servlet-class>controller.ChangePassword</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>createBookingDetailControl</servlet-name>
-        <servlet-class>adminControl.createBookingDetailControl</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>loginControl</servlet-name>
-        <url-pattern>/js/login</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>signupControl</servlet-name>
-        <url-pattern>/js/signup</url-pattern>
+        <url-pattern>/signup</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>searchControl</servlet-name>
-        <url-pattern>/js/search</url-pattern>
+        <servlet-name>DetailController</servlet-name>
+        <url-pattern>/detail</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>roomList</servlet-name>
-        <url-pattern>/admin/room/roomList</url-pattern>
+        <servlet-name>NewListController</servlet-name>
+        <url-pattern>/newslist</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>createRoom</servlet-name>
-        <url-pattern>/admin/room/create</url-pattern>
+        <servlet-name>loginControl</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/category</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>logoutServlet</servlet-name>
-        <url-pattern>/js/logout</url-pattern>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>deleteRoom</servlet-name>
-        <url-pattern>/admin/room/delete</url-pattern>
+        <servlet-name>CommentController</servlet-name>
+        <url-pattern>/comment</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>updateRoom</servlet-name>
-        <url-pattern>/admin/room/update</url-pattern>
+        <servlet-name>AdminNews</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>createService</servlet-name>
-        <url-pattern>/admin/services/create</url-pattern>
+        <servlet-name>AddNewsController</servlet-name>
+        <url-pattern>/addNew</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>updateServices</servlet-name>
-        <url-pattern>/admin/services/update</url-pattern>
+        <servlet-name>DeleteNews</servlet-name>
+        <url-pattern>/deleteNews</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>bookingControl</servlet-name>
-        <url-pattern>/js/booking</url-pattern>
+        <servlet-name>AddCategory</servlet-name>
+        <url-pattern>/createCategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>bookingDetailControl</servlet-name>
-        <url-pattern>/js/bookingDetail</url-pattern>
+        <servlet-name>DeleteCategory</servlet-name>
+        <url-pattern>/deleteCategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>profileControl</servlet-name>
-        <url-pattern>/js/profile</url-pattern>
+        <servlet-name>UpdateNews</servlet-name>
+        <url-pattern>/updateNews</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>detaiListControl</servlet-name>
-        <url-pattern>/admin/bookingdetail/detaiList</url-pattern>
+        <servlet-name>UpdateCategory</servlet-name>
+        <url-pattern>/updateCategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>deleteDetailControl</servlet-name>
-        <url-pattern>/admin/bookingdetail/delete</url-pattern>
+        <servlet-name>Profile</servlet-name>
+        <url-pattern>/profile</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>updateBookingControl</servlet-name>
-        <url-pattern>/admin/bookingdetail/update</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>createBookingDetailControl</servlet-name>
-        <url-pattern>/admin/bookingdetail/create</url-pattern>
+        <servlet-name>change</servlet-name>
+        <url-pattern>/change</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            6000
         </session-timeout>
     </session-config>
 </web-app>
