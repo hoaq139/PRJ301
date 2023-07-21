@@ -24,6 +24,14 @@ public class News {
     private int categoryId;
     private Category category;
     private User user;
+    private int publishid;
+    private Publish published;
+    
+
+    
+
+    
+    
 
     public News() {
     }
@@ -36,17 +44,18 @@ public class News {
         this.categoryId = categoryId;
     }
 
-    public News(int id, String title, String description, String image, String shortDes, int categoryId) {
+    public News(String title, String description, String image, String shortDes, int categoryId, int publishid,int id) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.image = image;
         this.shortDes = shortDes;
         this.categoryId = categoryId;
+        this.publishid = publishid;
     }
     
 
-    public News(int id, String title, String description, String image, int authorId, String timePost, String shortDes, int categoryId, User user) {
+    public News(int id, String title, String description, String image, int authorId, String timePost, String shortDes, int categoryId,int publishid, User user) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -55,10 +64,11 @@ public class News {
         this.timePost = timePost;
         this.shortDes = shortDes;
         this.categoryId = categoryId;
+        this.publishid = publishid;
         this.user = user;
     }
 
-    public News(String title, String description, String image, int authorId, String timePost, String shortDes, int categoryId) {
+    public News(String title, String description, String image, int authorId, String timePost, String shortDes, int categoryId, int publishid) {
         this.title = title;
         this.description = description;
         this.image = image;
@@ -66,6 +76,7 @@ public class News {
         this.timePost = timePost;
         this.shortDes = shortDes;
         this.categoryId = categoryId;
+        this.publishid = publishid;
     }
 
     public User getUser() {
@@ -148,6 +159,26 @@ public class News {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+    
+    
+
+    public int getPublishid() {
+        return publishid;
+    }
+
+    public void setPublishid(int publishid) {
+        this.publishid = publishid;
+    }
+
+    
+
+    public Publish getPublished() {
+        return published;
+    }
+
+    public void setPublished(Publish published) {
+        this.published = published;
     }
 
     @Override

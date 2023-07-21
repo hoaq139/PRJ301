@@ -36,6 +36,8 @@
                         <li> <a href="" class="nav-link">Home</a> </li>
                         <li> <a href="#news" class="nav-link">News</a> </li>
                         <li> <a href="#category" class="nav-link">Category</a> </li>
+                        <li> <a href="listUser" class="nav-link">Manage user</a> </li>
+                         <li> <a href="commentadmin" class="nav-link">Manage Comment</a> </li>
                             <c:if test="${sessionScope.account==null}">
                             <li>
                                 <a href="login.jsp" class="nav-link">MY ACCOUNT</a> 
@@ -58,7 +60,8 @@
 
         <div class="table-wrapper" id="news">
             <h2>News Control</h2>
-            <table class="fl-table" style="width: 5rem; overflow: auto;">
+            <table class="fl-table" style="width: 100vw; overflow: scroll;">
+                
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -71,7 +74,9 @@
                         <th>
                             Category
                         </th>
+                        
                         <th style="background-color: orangered;"><a href="addNew">Add new</a></th>
+                        <th>Published</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -87,6 +92,26 @@
                             <td>${news.category.name}</td>
                             <td><a href="updateNews?id=${news.id}">Update</a>
                                 <a href="#" onclick = "showMess(${news.id})">Delete</a></td>
+                            <td style="overflow-wrap: break-all; width: 5rem;">
+                                <c:choose>
+                            <c:when test="${news.publishid == 0}">
+                                published
+                            </c:when>
+                            <c:when test="${list.roles == 3}">
+                                
+                            </c:when>
+                            
+                            <c:when test="${list.roles == 2}">
+                                
+                            </c:when>
+                            
+                            <c:otherwise>
+                                
+                                pending/banned
+                            </c:otherwise>
+                        </c:choose>
+                            </td>
+                            
                         </tr>
                     </c:forEach>
                 <tbody>

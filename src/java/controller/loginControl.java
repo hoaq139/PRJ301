@@ -29,10 +29,15 @@ public class loginControl extends HttpServlet {
         HttpSession session = req.getSession();
         if (a != null) // login successfully!
         {
-            if (a.getRoles() == 1 || a.getRoles() == 3) {
+            if (a.getRoles() == 1) {
                 session.setAttribute("account", a);
                 session.setMaxInactiveInterval(60 * 600);
                 resp.sendRedirect("admin");
+                return;
+            }else if(a.getRoles() == 3){
+                session.setAttribute("account", a);
+                session.setMaxInactiveInterval(60 * 600);
+                resp.sendRedirect("writer");
                 return;
             }
             String remember = req.getParameter("remember");

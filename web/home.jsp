@@ -145,7 +145,10 @@
                 <div class="row">
                     <div class="room-des row" id="categoryData">
                         <c:forEach var="a" items="${requestScope.data}">
-                            <div class="col-md-4">
+                            
+                                        <c:choose>
+                            <c:when test="${a.publishid == 0}">
+                                <div class="col-md-4">
                                 <form action="detail?id=${a.id}" method="POST">
                                     <img src="${a.image}"alt=""/>
                                     <div class="room-text">
@@ -160,11 +163,26 @@
                                             <p style="color: black;">${a.timePost}</p>
                                         </div>
                                         <p>${a.shortDes}</p>
+                                        
+                                        <input type="hidden" name="id" value="${a.publishid}">
                                         <input type="submit" name="booknow" value="Click To Read More">
                                         <span></span>
                                     </div>
-                                </form> 
-                            </div>
+                                </form>
+                                        </div>
+                            </c:when>
+                            <c:when test="${list.roles == 1}">
+                                writer
+                            </c:when>
+                            
+                            
+                            
+                            <c:otherwise>
+                                
+                                
+                            </c:otherwise>
+                        </c:choose>
+                            
 
                         </c:forEach>
 

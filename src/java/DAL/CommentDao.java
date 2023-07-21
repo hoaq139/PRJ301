@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Comment;
 import model.News;
+import model.Publish;
 import model.User;
 
 /**
@@ -45,6 +46,33 @@ public class CommentDao extends BaseDAO<Comment> {
         }
         return list;
 
+    }
+    public List<Comment> getAllComment() {
+        List<Comment> list = new ArrayList<>();
+        try {
+            String sql = "Select comment, id from [TinTuc].[dbo].[Comment]";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Comment r = new Comment();
+                r.setComment(rs.getString(1));
+                r.setId(rs.getInt(2));
+                
+                list.add(r);
+            }
+        } catch (Exception e) {
+        }
+        return list;
+
+    }
+    public void deleteNews(int id) {
+        try {
+            String sql = "DELETE Comment WHERE id=?";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+        }
     }
 
     public int countCommentByNewId(String id) {

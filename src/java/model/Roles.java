@@ -13,6 +13,10 @@ public class Roles {
     private int id;
     private String name;
 
+    public Roles() {
+    }
+
+    
     public Roles(int id, String name) {
         this.id = id;
         this.name = name;

@@ -64,6 +64,34 @@
         <servlet-name>change</servlet-name>
         <servlet-class>controller.ChangePassword</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserList</servlet-name>
+        <servlet-class>controller.UserList</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateUser</servlet-name>
+        <servlet-class>controller.UpdateUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteUser</servlet-name>
+        <servlet-class>controller.DeleteUser</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WriterNews</servlet-name>
+        <servlet-class>controller.WriterNews</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewWriter</servlet-name>
+        <servlet-class>controller.AddNewWriter</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CommentControl</servlet-name>
+        <servlet-class>controller.CommentControl</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deletecomment</servlet-name>
+        <servlet-class>controller.deletecomment</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>signupControl</servlet-name>
         <url-pattern>/signup</url-pattern>
@@ -127,6 +155,34 @@
     <servlet-mapping>
         <servlet-name>change</servlet-name>
         <url-pattern>/change</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserList</servlet-name>
+        <url-pattern>/listUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateUser</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteUser</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WriterNews</servlet-name>
+        <url-pattern>/writer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewWriter</servlet-name>
+        <url-pattern>/addwriter</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommentControl</servlet-name>
+        <url-pattern>/commentadmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>deletecomment</servlet-name>
+        <url-pattern>/deletecomment</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

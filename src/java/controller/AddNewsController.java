@@ -6,6 +6,7 @@ package controller;
 
 import DAL.CategoryDao;
 import DAL.NewsDao;
+import DAL.PublishDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.util.List;
 import model.Category;
 import model.News;
+import model.Publish;
 import model.User;
 
 /**
@@ -31,10 +33,11 @@ public class AddNewsController extends HttpServlet {
         String shortdes = req.getParameter("shortdes");
         String category = req.getParameter("category");
         String description = req.getParameter("description");
+        String publish = req.getParameter("publish");
         HttpSession session = req.getSession();
         User user = (User) session.getAttribute("account");
         NewsDao dao = new NewsDao();
-        dao.insertNews(new News(title, description, image, user.getId(), String.valueOf(LocalDate.now()), shortdes, Integer.parseInt(category)));
+        dao.insertNews(new News(title, description, image, user.getId(), String.valueOf(LocalDate.now()), shortdes, Integer.parseInt(category),Integer.parseInt(publish)));
         resp.sendRedirect("admin");
     }
 
@@ -43,6 +46,9 @@ public class AddNewsController extends HttpServlet {
         CategoryDao cdao = new CategoryDao();
         List<Category> listC = cdao.getAllCategorys();
         req.setAttribute("listC", listC);
+        PublishDAO pdao = new PublishDAO();
+        List<Publish> publish = pdao.getAllCategorys();
+        req.setAttribute("listP", publish);
         req.getRequestDispatcher("add.jsp").forward(req, resp);
     }
 

@@ -60,6 +60,15 @@
                             </c:forEach>
                                 </select>
                             </td>
+                            <td>
+                                <select name="publish">
+                                    <c:forEach var="a" items="${listP}">
+                                        <option value="${a.id}">
+                                            ${a.publish}
+                                        </option>
+                                    </c:forEach>
+                                </select>
+                            </td>
                         </tr>
 
                     <tbody>

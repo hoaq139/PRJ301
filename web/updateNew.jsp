@@ -39,6 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <input type="hidden" name="id" value="${s.id}">
                         <tr>
                             <td style="color: #ffffff; background: #324960; width: 10rem;">Image</td>
                             <td><input value="${s.image}" type="text" name="image" required=""/></td>
@@ -57,6 +58,15 @@
                                 <select name="category">
                                     <c:forEach var="a" items="${listC}">
                                         <option value="${a.id}">${a.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="publish">
+                                    <c:forEach var="a" items="${listP}">
+                                        <option value="${a.id}">
+                                            ${a.publish}
+                                        </option>
                                     </c:forEach>
                                 </select>
                             </td>

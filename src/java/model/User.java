@@ -33,6 +33,11 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
+    public User(int roles) {
+        this.roles = roles;
+    }
+    
     
 
     public User() {
